@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Bethany of Victory Church | A Pool of Healing</title>
+    <!-- Google Fonts + Font Awesome 6 (free) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #111;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* PRIMARY COLOR PALETTE: Green, Black, Red, White, Blue */
+        :root {
+            --green-primary: #1f5e2e;
+            --green-soft: #2c7840;
+            --black-deep: #0a0a0a;
+            --red-power: #b1232a;
+            --white-pure: #ffffff;
+            --blue-trust: #1e3a6b;
+            --gray-light: #f8f9fc;
+            --gold-accent: #e6b422;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* header & navigation */
+        header {
+            background: var(--white-pure);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--red-power);
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 14px 0;
+        }
+        /* LOGO PLACEHOLDER - replace with your own image */
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-img {
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+            background: var(--white-pure);
+            border-radius: 50%;
+            border: 2px solid var(--green-primary);
+            padding: 4px;
+            transition: transform 0.2s;
+        }
+        .logo-img:hover { transform: scale(1.02); }
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, var(--green-primary) 30%, var(--blue-trust) 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .logo-text span { color: var(--red-power); background: none; -webkit-background-clip: unset; font-weight: 800; }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--black-deep);
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--red-power);
+            border-bottom: 2px solid var(--red-power);
+            padding-bottom: 6px;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--green-primary);
+        }
+
+        /* HERO + BACKGROUND SLIDESHOW AUTO */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 0.8s ease-in-out;
+            /* default background (fallback) */
+            background-image: url('https://images.pexels.com/photos/716437/pexels-photo-716437.jpeg?auto=compress&cs=tinysrgb&w=1600');
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.65);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 30px 20px;
+            color: white;
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 18px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .welcome-note {
+            font-size: 1.4rem;
+            font-weight: 500;
+            background: rgba(0,0,0,0.45);
+            backdrop-filter: blur(6px);
+            display: inline-block;
+            padding: 10px 26px;
+            border-radius: 60px;
+            margin-bottom: 22px;
+            border-left: 5px solid var(--red-power);
+        }
+        .healing-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            background: rgba(30,58,107,0.7);
+            padding: 12px 20px;
+            border-radius: 40px;
+            margin-top: 15px;
+            display: inline-block;
+        }
+        .btn-group {
+            margin-top: 30px;
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--red-power);
+            color: white;
+            padding: 12px 34px;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+        }
+        .btn-outline:hover {
+            background: white;
+            color: var(--red-power);
+        }
+        .btn:hover {
+            background: #8b1a20;
+            transform: scale(1.02);
+        }
+
+        /* section styles */
+        section {
+            scroll-margin-top: 90px;
+            padding: 80px 0;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 48px;
+            color: var(--green-primary);
+            position: relative;
+        }
+        .section-title:after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--red-power);
+            display: block;
+            margin: 12px auto 0;
+            border-radius: 4px;
+        }
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+        .card {
+            background: var(--white-pure);
+            border-radius: 32px;
+            padding: 28px 20px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+            transition: 0.25s;
+            border: 1px solid #eaeef2;
+        }
+        .card:hover { transform: translateY(-8px); border-left: 5px solid var(--red-power); }
+        .card i { font-size: 2.3rem; color: var(--blue-trust); margin-bottom: 16px; }
+        .card h3 { font-size: 1.6rem; margin-bottom: 12px; color: var(--black-deep); }
+        .event-date { font-weight: 700; color: var(--red-power); margin: 12px 0 8px; }
+
+        /* contact + map */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+        .contact-info i { width: 30px; color: var(--green-primary); margin-right: 12px; }
+        .contact-info p { margin: 18px 0; display: flex; align-items: center; flex-wrap: wrap; }
+        form input, form textarea, form select {
+            width: 100%;
+            padding: 14px 18px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 40px;
+            font-family: inherit;
+            background: #fff;
+        }
+        .map-container {
+            margin-top: 40px;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        iframe {
+            width: 100%;
+            height: 320px;
+            border: 0;
+        }
+
+        /* about highlights */
+        .belief-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        .pillar {
+            background: #f0f4f0;
+            padding: 24px;
+            border-radius: 32px;
+            flex: 1;
+            min-width: 220px;
+            text-align: center;
+            border-bottom: 4px solid var(--red-power);
+        }
+        footer {
+            background: var(--black-deep);
+            color: #ddd;
+            padding: 48px 0 24px;
+            text-align: center;
+        }
+        .social-icons a {
+            color: var(--gold-accent);
+            font-size: 1.8rem;
+            margin: 0 12px;
+            transition: 0.2s;
+        }
+        @media (max-width: 850px) {
+            .navbar { flex-direction: column; gap: 12px; }
+            .menu-toggle { display: block; align-self: flex-end; }
+            .nav-links { display: none; flex-direction: column; width: 100%; text-align: center; padding: 20px 0; gap: 20px; }
+            .nav-links.show { display: flex; }
+            .contact-wrapper { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.3rem; }
+            .section-title { font-size: 2rem; }
+        }
+        .verse {
+            font-family: monospace;
+            background: #fef5e7;
+            padding: 8px 16px;
+            border-radius: 28px;
+            display: inline-block;
+        }
+        .red-accent { color: var(--red-power); font-weight: bold; }
+        .prayer-call {
+            background: var(--blue-trust);
+            color: white;
+            padding: 20px;
+            border-radius: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo-area">
+                <!-- ======================================================= -->
+                <!-- LOGO IMAGE PLACEMENT: Replace src with your church logo -->
+                <img class="logo-img" src="https://placehold.co/200x200?text=+Victory+Logo" alt="Bethany Church Logo">
+                <!-- ======================================================= -->
+                <div class="logo-text">Bethany of <span>Victory Church</span></div>
+            </div>
+            <button class="menu-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#events" class="nav-link">Events</a></li>
+                <li><a href="#programs" class="nav-link">Programs/Services</a></li>
+                <li><a href="#contact" class="nav-link">Contact Us</a></li>
+                <li><a href="#about" class="nav-link">About Us</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- HOME SECTION with BACKGROUND SLIDESHOW AUTO -->
+    <section id="home" class="hero" id="heroSection">
+        <!-- Background image will be injected via JS slideshow (auto rotation) -->
+        <div class="hero-content">
+            <div class="welcome-note">
+                <i class="fas fa-hand-peace"></i> We are honored to have you visit us today.
+            </div>
+            <h1>Bethany of Victory Church</h1>
+            <p style="font-size:1.2rem; max-width:700px; margin:0 auto;">⚡ A Pool of Healing (John 5) ⚡</p>
+            <div class="healing-quote">
+                <i class="fas fa-dove"></i> "We welcome all Angels of Light and fight the powers of Darkness. Come with all your sicknesses, spiritual or physical — you will get healed."
+            </div>
+            <div class="btn-group">
+                <a href="#contact" class="btn"><i class="fas fa-calendar-check"></i> Plan Your Visit</a>
+                <a href="#programs" class="btn btn-outline"><i class="fas fa-praying-hands"></i> Healing Services</a>
+            </div>
+            <div class="verse" style="margin-top: 32px; background: rgba(0,0,0,0.6); color:white;">
+                <i class="fas fa-bible"></i> 1 Thessalonians 5:17 — "Remember we pray unceasingly."
+            </div>
+        </div>
+    </section>
+
+    <!-- EVENTS SECTION -->
+    <section id="events">
+        <div class="container">
+            <h2 class="section-title">Upcoming Events & Gatherings</h2>
+            <div class="cards-grid">
+                <div class="card"><i class="fas fa-water"></i><div class="event-date">May 30, 2026 | 6:00 PM</div><h3>Pool of Healing Crusade</h3><p>Miracle & deliverance service. Anointing, worship & prayer for every sickness. John 5:4 declaration.</p></div>
+                <div class="card"><i class="fas fa-pray"></i><div class="event-date">June 5-7, 2026</div><h3>3 Days of Unceasing Prayer</h3><p>Night vigil & fasting. 1 Thessalonians 5:17 - come intercede for our city and families.</p></div>
+                <div class="card"><i class="fas fa-hands-helping"></i><div class="event-date">Every Thursday, 7 PM</div><h3>Angels of Light Training</h3><p>Spiritual warfare & evangelism. Equipping saints to fight darkness with God’s power.</p></div>
+                <div class="card"><i class="fas fa-church"></i><div class="event-date">Sundays 9:00 & 11:00 AM</div><h3>Healing & Worship Celebration</h3><p>Holy Communion, prophetic worship & prayer for physical/spiritual needs.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAMS / SERVICES PAGE -->
+    <section id="programs" style="background: #fafaf5;">
+        <div class="container">
+            <h2 class="section-title">Ministries & Programs</h2>
+            <div class="cards-grid">
+                <div class="card"><i class="fas fa-hand-holding-heart"></i><h3>Healing & Deliverance Service</h3><p>Wednesdays 7pm – Special prayer line for the sick, oppressed and bound. Freedom in Christ.</p><small>📞 +256 (0) 700 000 000</small></div>
+                <div class="card"><i class="fas fa-children"></i><h3>Arrows of Light (Kids ministry)</h3><p>Children's church with Bible stories, healing testimonies & fun. Sundays 11AM.</p></div>
+                <div class="card"><i class="fas fa-dove"></i><h3>Prayer Warriors (24/7 Intercessors)</h3><p>Join our unceasing prayer chain. WhatsApp group & Zoom prayer every morning 5:30 AM.</p></div>
+                <div class="card"><i class="fas fa-bible"></i><h3>Discipleship School</h3><p>Deep dive into spiritual authority, healing principles and spiritual warfare. 8-week course.</p></div>
+                <div class="card"><i class="fas fa-music"></i><h3>Worship & Arts Team</h3><p>Angelic worship atmosphere. Rehearsals Saturday 3pm – instrumentalists & singers welcome.</p></div>
+                <div class="card"><i class="fas fa-torah"></i><h3>Victory Outreach</h3><p>Street ministry, hospital visitation, sharing the Pool of Healing message. Join us Saturdays.</p></div>
+            </div>
+            <div class="prayer-call" style="margin-top: 48px;">
+                <i class="fas fa-phone-alt"></i> <strong> Need prayer or healing?</strong> Call our prayer line: +256-702-HEAL-NOW | Every day 6am–9pm.
+                <div style="margin-top: 12px;"><i class="fas fa-envelope"></i> prayer@bethanyvictory.org</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT US + LOCATION IFRAME -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Reach Out & Visit Us</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3><i class="fas fa-map-marker-alt red-accent"></i> Our Location</h3>
+                    <p><i class="fas fa-location-dot"></i> Bethany of Victory Church, P.O.Box 21726, Kampala, Uganda</p>
+                    <p><i class="fas fa-phone-alt"></i> +256 (0) 414 123 456 | +256 772 567 890</p>
+                    <p><i class="fas fa-envelope"></i> info@bethanyvictory.org | healing@bethanyvictory.org</p>
+                    <p><i class="fas fa-clock"></i> Office Hours: Mon-Fri 9:00 AM – 4:00 PM</p>
+                    <hr style="margin: 20px 0;">
+                    <p><strong>📬 Postal Address:</strong> P.O.Box 21726, Kampala (remember we pray unceasingly)</p>
+                    <div class="social-icons" style="margin: 20px 0;">
+                        <a href="#" style="color: var(--blue-trust);"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#" style="color: var(--blue-trust);"><i class="fab fa-youtube fa-2x"></i></a>
+                        <a href="#" style="color: var(--blue-trust);"><i class="fab fa-instagram fa-2x"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <form id="contactForm" action="#" method="post">
+                        <input type="text" name="name" placeholder="Your name *" required>
+                        <input type="email" name="email" placeholder="Email address *" required>
+                        <select name="category">
+                            <option>Prayer request</option><option>Healing testimony</option><option>Volunteer</option><option>General inquiry</option>
+                        </select>
+                        <textarea rows="4" placeholder="Share your prayer or message ..." required></textarea>
+                        <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <!-- Google Maps IFRAME (Editable location) -->
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.000000000002!2d32.5825197!3d0.31361119999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbbd000000001%3A0x5f0e1b7d0d12b123!2sKampala%2C%20Uganda!5e0!3m2!1sen!2sug!4v1681999999999!5m2!1sen!2sug" 
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <div style="text-align: center; margin: 24px 0 0;"><i class="fas fa-info-circle"></i> Need directions? Our doors are open – “Come as you are, leave healed.”</div>
+        </div>
+    </section>
+
+    <!-- ABOUT US PAGE - Filled with extracted vision, pool of healing, warfare theology -->
+    <section id="about" style="background: #fefcf7;">
+        <div class="container">
+            <h2 class="section-title">About Bethany of Victory</h2>
+            <div style="max-width: 850px; margin: 0 auto 40px; text-align: center;">
+                <p style="font-size:1.2rem;"><strong>A Pool of Healing (John 5:2-9)</strong> — We are a prophetic church raised to bring wholeness, deliverance, and the light of Christ to defeat darkness. Founded on unceasing prayer, we welcome all angels of light.</p>
+            </div>
+            <div class="belief-grid">
+                <div class="pillar"><i class="fas fa-water fa-2x" style="color: var(--blue-trust);"></i><h3>Healing Mandate</h3><p>Jesus heals every sickness — spiritual, physical, emotional. We believe in miracles today.</p></div>
+                <div class="pillar"><i class="fas fa-shield-alt fa-2x" style="color: var(--red-power);"></i><h3>Fight Darkness</h3><p>We stand against powers of darkness through worship, prayer, and the blood of Jesus.</p></div>
+                <div class="pillar"><i class="fas fa-pray fa-2x" style="color: var(--green-primary);"></i><h3>Unceasing Prayer</h3><p>1 Thessalonians 5:17. A 24/7 altar of intercession, praying for Uganda and the world.</p></div>
+                <div class="pillar"><i class="fas fa-lightbulb fa-2x"></i><h3>Angels of Light</h3><p>Empowered believers bringing hope, not fear. Walking in authority and love.</p></div>
+            </div>
+            <div style="background: white; border-radius: 36px; padding: 28px; margin: 30px 0 20px;">
+                <h3><i class="fas fa-cross" style="color: var(--red-power);"></i> What We Believe</h3>
+                <p>📖 The Bible is God's infallible Word. We believe in the Trinity: Father, Son (Jesus Christ) and Holy Spirit. Salvation through faith in Jesus’ sacrifice. We practice water baptism and Holy Communion. We believe in the gifts of the Holy Spirit: healing, prophecy, deliverance. We welcome all who are sick, weary, or oppressed — you shall be made whole. As God said, <strong>"Come with all your sicknesses, spiritual or physical, you will get healed."</strong></p>
+                <div class="verse" style="background:#eef2ee; margin-top: 18px;">💒 P.O.Box 21726 – "Remember we pray unceasingly" (1 Thessalonians 5:17). Every Wednesday prayer vigil at 7pm.</div>
+            </div>
+            <div class="leader-card" style="display: flex; flex-wrap: wrap; gap: 28px; justify-content: center; margin: 28px 0;">
+                <div style="text-align: center; background: #f3f0e6; border-radius: 32px; padding: 18px; width: 210px;"><img src="https://randomuser.me/api/portraits/men/45.jpg" style="width:100px; border-radius: 50%;" alt="Pastor"><h4>Rev. Samuel Mukasa</h4><p>Senior Pastor & Healing Minister</p><small>“Pool of Healing” vision bearer</small></div>
+                <div style="text-align: center; background: #f3f0e6; border-radius: 32px; padding: 18px; width: 210px;"><img src="https://randomuser.me/api/portraits/women/68.jpg" style="width:100px; border-radius: 50%;" alt="Prophet"><h4>Prophetess Grace N.</h4><p>Intercessory Director</p><small>Warfare & deliverance</small></div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px;">
+            <div><i class="fas fa-church"></i> Bethany of Victory Church – A Pool of Healing<br>© 2026 | Unceasing Prayer</div>
+            <div><strong>Quick links</strong><br><a href="#home" style="color: #e6c87e;">Home</a> | <a href="#events" style="color: #e6c87e;">Events</a> | <a href="#programs" style="color: #e6c87e;">Programs</a><br><a href="#contact" style="color: #e6c87e;">Contact</a> | <a href="#about" style="color: #e6c87e;">About</a></div>
+            <div><i class="fas fa-praying-hands"></i> “We welcome all Angels of Light” – John 5: Healing for all.</div>
+        </div>
+        <hr style="margin: 28px 0 20px; border-color: #2c2c2c;">
+        <div>P.O.Box 21726 | Follow us: <i class="fab fa-facebook"></i> <i class="fab fa-youtube"></i> <i class="fab fa-instagram"></i></div>
+    </div>
+</footer>
+
+<script>
+    // ======================= BACKGROUND SLIDESHOW AUTO (hero images) ==========================
+    // EDIT THESE IMAGES: Replace with your own church background images or any high-res images.
+    const slideshowImages = [
+        'https://images.pexels.com/photos/2570061/pexels-photo-2570061.jpeg?auto=compress&cs=tinysrgb&w=1600',
+        'https://images.pexels.com/photos/3165344/pexels-photo-3165344.jpeg?auto=compress&cs=tinysrgb&w=1600',
+        'https://images.pexels.com/photos/4423381/pexels-photo-4423381.jpeg?auto=compress&cs=tinysrgb&w=1600',
+        'https://images.pexels.com/photos/4057671/pexels-photo-4057671.jpeg?auto=compress&cs=tinysrgb&w=1600'
+    ];
+    // For video background alternative: (Instructions)
+    // To use a video background instead of slideshow: remove the slideshow interval, set hero background to none,
+    // insert <video> element inside hero (absolute position). See commented code below.
+    let currentIndex = 0;
+    const heroDiv = document.querySelector('.hero');
+    if(heroDiv) {
+        // Set first image
+        heroDiv.style.backgroundImage = `url('${slideshowImages[0]}')`;
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % slideshowImages.length;
+            heroDiv.style.backgroundImage = `url('${slideshowImages[currentIndex]}')`;
+        }, 5500); // auto-change every 5.5 seconds
+    }
+
+    // VIDEO BACKGROUND INSTRUCTION (for user):
+    // If you want a video background: comment out the slideshow interval, uncomment the following lines, and replace video source.
+    // Also set hero background-image to none.
+    /*
+    const videoElement = document.createElement('video');
+    videoElement.autoplay = true;
+    videoElement.muted = true;
+    videoElement.loop = true;
+    videoElement.playsInline = true;
+    videoElement.style.position = 'absolute';
+    videoElement.style.width = '100%';
+    videoElement.style.height = '100%';
+    videoElement.style.objectFit = 'cover';
+    videoElement.style.zIndex = '0';
+    videoElement.innerHTML = '<source src="your-church-video.mp4" type="video/mp4">';
+    heroDiv.prepend(videoElement);
+    heroDiv.style.backgroundImage = 'none';
+    */
+
+    // Mobile menu toggle
+    const toggleBtn = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+    if(toggleBtn && navMenu) {
+        toggleBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+    }
+    // Active section highlight on scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    function updateActive() {
+        let current = '';
+        const scrollPos = window.scrollY + 180;
+        sections.forEach(section => {
+            const top = section.offsetTop;
+            const height = section.offsetHeight;
+            if(scrollPos >= top && scrollPos < top + height) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href').substring(1);
+            if(href === current) link.classList.add('active');
+        });
+    }
+    window.addEventListener('scroll', updateActive);
+    window.addEventListener('load', updateActive);
+    // Contact form demo
+    const form = document.getElementById('contactForm');
+    if(form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you! Your message has been sent. Our prayer team will respond within 24h. God bless you!');
+            form.reset();
+        });
+    }
+</script>
+<!-- ========== EDITING NOTES ==========
+     - LOGO: replace <img class="logo-img" src="..."> with your own logo file path.
+     - HERO SLIDESHOW IMAGES: modify the "slideshowImages" array in script; add your photo URLs.
+     - VIDEO BACKGROUND: see commented instructions inside script.
+     - Location iframe: replace src with your exact church Google Maps embed code.
+     - All colors use the requested green, black, red, white, blue palette.
+     - Extracted text from user images: "Pool of Healing (John 5)", "welcome all Angels of Light", "fight powers of Darkness", "come with sicknesses healed", "P.O.Box21726", "pray unceasingly".
+-->
+</body>
+</html>
