@@ -1,6 +1,3 @@
-/* ========== BETHANY OF VICTORY CHURCH - MAIN STYLESHEET ========== */
-/* Primary colors: Green, Black, Red, White, Blue */
-
 * {
     margin: 0;
     padding: 0;
@@ -9,13 +6,12 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #ffffff;
+    background-color: #caf1f7;
     color: #111;
     line-height: 1.5;
     scroll-behavior: smooth;
 }
 
-/* CSS Variables (Color Palette) */
 :root {
     --green-primary: #1f5e2e;
     --green-soft: #2c7840;
