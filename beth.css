@@ -31,7 +31,7 @@ body {
 
 /* ========== HEADER & NAVIGATION ========== */
 header {
-    background: var(--white-pure);
+    background: #6fd1c0;
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
@@ -47,7 +47,6 @@ header {
     padding: 14px 0;
 }
 
-/* Logo area */
 .logo-area {
     display: flex;
     align-items: center;
@@ -368,7 +367,7 @@ iframe {
 
 /* Footer */
 footer {
-    background: var(--black-deep);
+    background: #2d7b6b;
     color: #ddd;
     padding: 48px 0 24px;
     text-align: center;
