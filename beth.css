@@ -31,7 +31,7 @@ body {
 
 /* ========== HEADER & NAVIGATION ========== */
 header {
-    background: #6fd1c0;
+    background: #6fb7ab;
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
@@ -40,11 +40,15 @@ header {
 }
 
 .navbar {
-    display: flex;
+    position: relative;
+    background: rgba(245, 221, 214, 0.05);
+    border-radius: 60px;
+    backdrop-filter: var(--gold-accent);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    padding: 14px 0;
+    padding: 15px 20px;
+    display: flex;
 }
 
 .logo-area {
@@ -101,7 +105,7 @@ header {
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--red-power);
+    color: var(--green-soft);
     border-bottom: 2px solid var(--red-power);
     padding-bottom: 6px;
 }
